@@ -7,13 +7,7 @@ library(monocle3)
 
 #### Create a Monocle CDS Object
 # Project PC dimensions to whole data set
-seurat.object <- readRDS("Analyses for myself/RDS files/niche_merge_myway_noPTPRC.rds")
-p <- DimPlot(seurat.object)
-cells <- CellSelector(p)
-seurat.object <- subset(seurat.object, cells = cells)
-Idents(seurat.object) <- seurat.object$source
-seurat.object <- subset(seurat.object, idents = "myeloma")
-Idents(seurat.object) <- seurat.object$seurat_clusters
+seurat.object <- readRDS("~/Niche.rds")
 
 # Create an expression matrix
 expression_matrix <- seurat.object@assays$RNA@counts
